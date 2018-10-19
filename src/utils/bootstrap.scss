@@ -1,0 +1,57 @@
+$theme-colors: (
+  primary: #72A603,
+  secundary: #BA7739,
+  danger: #A63E26
+);
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 0 !default;
+
+.pull-right {
+    float: right;
+}
+
+.modal-dialog {
+  max-width: 85% !important;
+}
+
+.btn {
+  border-radius: 0 !important;
+}
+
+.modal-body {
+  padding: 0 !important;
+}
+
+.modal-content {
+  border-radius: 0 !important;
+}
+
+list-group-item {
+  border-radius: 0 !important;
+}
+
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+// Optional
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/transitions";
