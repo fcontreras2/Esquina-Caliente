@@ -1,5 +1,6 @@
 import React , { Fragment } from 'react';
 import { Link } from "react-router-dom";
+import { MENU_BREAKFAST, MENU_REST } from '../../store/menu/model';
 
 import { Navbar, Button, ButtonGroup, Nav,NavDropdown } from 'react-bootstrap';
 import injectSheet from 'react-jss';
@@ -25,36 +26,46 @@ const styles = {
   }
 }
 
-const Header = ({classes, page}) => (
+const Header = props => (
   <Fragment>
-  <Navbar className={classes.navbar} bg="light" expand="lg" >
-    <Navbar.Brand href="#home">
-      <img src="/assets/images/logo.png"/>
+  <Navbar className={props.classes.navbar} bg="light" expand="lg" >
+    <Navbar.Brand >
+      <Link to="/"><img src="/assets/images/logo.png"/></Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
-        <Link to="/"><Nav.Link href="/">Menú</Nav.Link></Link>
-        <Link to="/orders"><Nav.Link href="/orders">Ordenes</Nav.Link></Link>
+        <Link to="/">Menú</Link>
+        <Link to="/orders">Ordenes</Link>
         <Nav.Link href="#pricing">Cerrar sessión</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
 
-  <div className={classes.containerButtons}>
+  <div className={props.classes.containerButtons}>
       {
-        page !== "orders" ?
+        props.page !== "orders" ?
         (
-          <ButtonGroup className={classes.buttons}>
-            <Button size="sm">Desayuno</Button>
-            <Button size="sm">Almuerzo</Button>
+          <ButtonGroup className={props.classes.buttons}>
+            <Button size="sm"
+              index={MENU_BREAKFAST}
+              variant={`${props.menuActive == MENU_BREAKFAST ? 'primary' : 'default'}`}
+              onClick={props.changeNavMenu}>Desayuno</Button>
+            <Button size="sm"
+              index={MENU_REST}
+              variant={`${props.menuActive == MENU_REST ? 'primary' : 'default'}`}
+              onClick={props.changeNavMenu}>Almuerzo</Button>
           </ButtonGroup>
         ) :
         (
-          <ButtonGroup className={classes.buttons}>
+          <ButtonGroup className={props.classes.buttons}>
 
-          <Button size="sm">Pendientes</Button>
-          <Button size="sm">Historial</Button>
+          <Button size="sm"
+            variant={`${props.menuActive == 1  ? 'primary' : 'default'}`}
+            onClick={props.changeNavOrders}>Pendientes</Button>
+          <Button size="sm"
+            variant={`${props.menuActive == 0 ? 'primary' : 'default'}`}
+            onClick={props.changeNavOrders}>Historial</Button>
           </ButtonGroup>
         )
       }

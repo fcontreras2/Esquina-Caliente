@@ -12,16 +12,21 @@ const styles = {
   }
 }
 
-const MainLayout = ({classes, children, page}) => (
+const MainLayout = (props) => (
   <Fragment>
-    <Header page={page}/>
-    <Row className={classes.container}>
-      {children}
+    <Header
+      page={props.page}
+      menuActive={props.menuActive}
+      changeNavMenu={props.handleChangeNavMenu}
+      changeNavOrders={props.changeNavOrders}
+    />
+    <Row className={props.classes.container}>
+      {props.children}
     </Row>
     {
-      page != 'orders' ? <FooterConfirmation/> : null
+      props.page != 'orders' ? <FooterConfirmation/> : null
     }
-    <ModalConfirmation page={page}/>
+    <ModalConfirmation page={props.page}/>
   </Fragment>
 )
 
