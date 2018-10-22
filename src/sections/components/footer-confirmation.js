@@ -7,17 +7,25 @@ const styles = {
     position: 'fixed',
     width: '100%',
     height: '10vh',
+    opacity: 0,
     textAlign: 'center',
     padding: 10,
     bottom: 0,
     backgroundColor: '#f2CD5c',
-    zIndex: 1000
+    zIndex: 1000,
+    transition: 'opacity 0.7s linear',
+    '&.active': {
+      opacity: 1
+    }
   }
 }
 
-const FooterConfirmation = ({classes}) => (
-  <div className={classes.container}>
-    <Button> Procesar /  1000S</Button>
+const FooterConfirmation = props => (
+  <div className={props.classes.container + ` ${props.total > 0 ? 'active': ''}`}>
+    {
+      props.total > 0 ?
+        <Button onClick={props.toggleModalConfirmation}> Procesar /  {props.total}</Button> : null
+    }
   </div>
 )
 

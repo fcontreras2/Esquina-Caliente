@@ -1,5 +1,5 @@
 $theme-colors: (
-  primary: #72A603,
+  primary: #6cd837,
   secundary: #BA7739,
   danger: #A63E26
 );
@@ -55,3 +55,4 @@ list-group-item {
 @import "../../node_modules/bootstrap/scss/list-group";
 @import "../../node_modules/bootstrap/scss/dropdown";
 @import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/alert";

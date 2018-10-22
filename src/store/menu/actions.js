@@ -1,15 +1,17 @@
 import {
-  FETCH_MENU,
   FETCH_MENU_STARTED,
   FETCH_MENU_SUCCESED,
   CHANGE_NAV_MENU,
   ADD_ITEM,
   REMOVE_ITEM,
-  ADD_ITEM_COUNT,
-  REMOVE_ITEM_COUNT } from './model';
+  CLEAN_ORDER,
+  TOGGLE_MODAL_CONFIRMATION } from './model';
 
+import { startSubmit } from 'redux-form';
 import { normalize } from 'normalizr';
 import { menu } from './normalize';
+
+import { setMessageSuccess } from '../modal/actions';
 
 import * as query from '../../utils/api';
 
@@ -18,7 +20,6 @@ export const fetchMenu = () => (
     dispatch(fetchMenuStarted())
     setTimeout(() => {
       query.getMenu().then(payload => {
-        console.log(normalize(payload,menu))
         dispatch({
           type: FETCH_MENU_SUCCESED,
           payload: normalize(payload,menu)
@@ -49,5 +50,33 @@ export const removeItem = payload => (
   {
     type: REMOVE_ITEM,
     payload
+  }
+)
+
+export const toggleModalConfirmation  = () => (
+  {
+    type: TOGGLE_MODAL_CONFIRMATION
+  }
+)
+
+export const cleanOrder = () => (
+  {
+    type: CLEAN_ORDER
+  }
+)
+
+export const confirmationOrder = (payload) => (
+  (dispatch,getState) => {
+    startSubmit('form-customer');
+    const { form, menu } = getState();
+    let data = {
+      customer: form['form-customer']['values'].name,
+      items:  menu['orders'],
+      total: menu['total']
+    }
+    query.confirmationOrder(data).then(payload => {
+      dispatch(setMessageSuccess('Se ha realizado el pedido correctamente!'))
+      dispatch(cleanOrder())
+    })
   }
 )

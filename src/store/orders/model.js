@@ -1,10 +1,9 @@
 // Estado inicial
 export const initialState = {
-  items: {}
+  orders: {}
 }
 
 // ACTIONS TYPES
-export const ADD_ITEM = 'ADD_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const ADD_ITEM_COUNT = 'ADD_ITEM_COUNT';
-export const REMOVE_ITEM_COUNT = 'REMOVE_ITEM_COUNT';
+export const FETCH_ORDERS = 'FETCH_ORDERS';
+export const FETCH_ORDERS_STARTED = 'FETCH_ORDERS_STARTED';
+export const FETCH_ORDERS_SUCCESED = 'FETCH_ORDERS_SUCCESED';

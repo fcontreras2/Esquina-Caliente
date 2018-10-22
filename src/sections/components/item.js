@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { Col, Button, ButtonGroup, Badge } from 'react-bootstrap';
+import { Col, Button, ButtonGroup } from 'react-bootstrap';
 import injectSheet from 'react-jss';
 
 const styles = {
   container: {
-    height: '30vh',
+    height: '40vh',
     marginBottom: 10
   },
   buttonGroup: {

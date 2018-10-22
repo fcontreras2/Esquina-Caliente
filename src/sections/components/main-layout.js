@@ -1,6 +1,5 @@
 import React, { Fragment }from 'react';
 import Header from './header';
-import FooterConfirmation from './footer-confirmation';
 import { Row } from 'react-bootstrap';
 import injectSheet from 'react-jss';
 import ModalConfirmation from '../containers/modal-confirmation';
@@ -23,9 +22,6 @@ const MainLayout = (props) => (
     <Row className={props.classes.container}>
       {props.children}
     </Row>
-    {
-      props.page != 'orders' ? <FooterConfirmation/> : null
-    }
     <ModalConfirmation page={props.page}/>
   </Fragment>
 )

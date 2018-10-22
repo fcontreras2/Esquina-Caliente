@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import Layout from '../sections/components/main-layout';
 import OrderList from '../sections/components/order-list';
 
@@ -8,8 +10,8 @@ class Orders extends Component {
     return(
       <Layout page={'orders'}>
         {
-          numbers.map((number, key) => (
-            <OrderList key={key}/>
+          Object.values(this.props.items).map((item, key) => (
+            <OrderList key={key} {...item}/>
           ))
         }
       </Layout>
@@ -17,4 +19,10 @@ class Orders extends Component {
   }
 }
 
-export default Orders;
+const mapStateToProps = state => (
+  {
+    items: state.orders.orders
+  }
+)
+
+export default connect(mapStateToProps)(Orders);

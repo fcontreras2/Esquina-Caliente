@@ -23,7 +23,6 @@ class CardItem extends Component {
   }
 
   render() {
-    console.log(this.props.item)
     return (
       <Item
         count={this.props.count}

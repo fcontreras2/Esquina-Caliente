@@ -7,13 +7,16 @@ export const menu = {
 }
 
 // Estado inicial
-export const initialState = {
+export const INITIAL_STATE = {
   menu,
   result: menu,
   orders: {},
   menuActive: MENU_BREAKFAST,
   loading: false,
-  total: 0
+  total: 0,
+  customer: null,
+  total: 0,
+  modalActive: false
 }
 
 // ACTIONS TYPES
@@ -25,3 +28,8 @@ export const CHANGE_NAV_MENU = 'CHANGE_NAV_MENU';
 
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+
+export const TOGGLE_MODAL_CONFIRMATION = 'TOGGLE_MODAL_CONFIRMATION';
+
+export const CLEAN_ORDER = 'CLEAN_ORDER';
+export const CONFIRMATION_ORDER = 'CONFIRMATION_ORDER';

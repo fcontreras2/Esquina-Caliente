@@ -10,19 +10,18 @@ const styles = {
 
 }
 
-const OrderList = ({classes}) => (
+const OrderList = props => (
   <Col xs={12}>
     <ListGroup>
       <ListGroup.Item>
         <Row>
           <Col xs={2}>
-            #1000
+            #{props.id}
           </Col>
           <Col xs={7}>
-
             <h3>
-              Freddy Contreras 
-              <span className="pull-right">300 Soles </span>
+              {props.customer}
+              <span className="pull-right">{props.total}</span>
             </h3>
           </Col>
         </Row>

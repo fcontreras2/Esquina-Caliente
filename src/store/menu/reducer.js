@@ -1,5 +1,5 @@
 import {
-  initialState,
+  INITIAL_STATE,
   FETCH_MENU_STARTED,
   FETCH_MENU_SUCCESED,
   CHANGE_NAV_MENU,
@@ -7,9 +7,11 @@ import {
   MENU_BREAKFAST,
   ADD_ITEM,
   REMOVE_ITEM,
+  CLEAN_ORDER,
+  TOGGLE_MODAL_CONFIRMATION
 } from './model';
 
-export const menu = (state = initialState, action) => {
+export const menu = (state = INITIAL_STATE, action) => {
 
   let keyItem = null;
 
@@ -20,7 +22,6 @@ export const menu = (state = initialState, action) => {
         loading: true
       }
     case FETCH_MENU_SUCCESED:
-      console.log('aaa',action.payload)
       return {
         ...state,
         loading: false,
@@ -57,6 +58,17 @@ export const menu = (state = initialState, action) => {
         ...state
       }
 
+    case TOGGLE_MODAL_CONFIRMATION:
+      return {
+        ...state,
+        modalActive: !state.modalActive
+      }
+    case CLEAN_ORDER:
+      return {
+        ...state,
+        orders: {},
+        total: 0
+      }
     default:
       return state;
   }
