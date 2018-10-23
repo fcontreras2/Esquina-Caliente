@@ -1,4 +1,5 @@
-const API_URL = "https://shopping-cart-data.herokuapp.com/";
+//const API_URL = "https://shopping-cart-data.herokuapp.com/";
+const API_URL = "http://localhost:4000/";
 
 export const getMenu = () => (
   fetch(API_URL + 'menu/')
@@ -27,6 +28,15 @@ export const confirmationOrderToHistory = (data) => (
   }).then(resp => resp.json())
 )
 
+export const deleteOrder = async (id) => {
+  await fetch(API_URL + `orders/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(resp => resp.json())
+}
 
 export const getOrders = async () => {
 

@@ -15,6 +15,7 @@ export const INITIAL_STATE = {
   loading: false,
   menuActive: MENU_PENDING,
   customer: null,
+  id: null
 }
 
 // ACTIONS TYPES

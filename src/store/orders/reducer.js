@@ -30,12 +30,12 @@ export const orders = (state = INITIAL_STATE, action) => {
           MENU_HISTORIAL : MENU_PENDING
       }
     case ADD_ITEMS_MODAL:
-      console.log('asdas',action.payload)
       return {
         ...state,
-        orders: action.payload['items'],
-        customer: action.payload['customer'],
-        total: action.payload['total']
+        id: action.payload['id'],
+        orders: action.payload['order']['items'],
+        customer: action.payload['order']['customer'],
+        total: action.payload['order']['total']
       }
     default:
       return state;
