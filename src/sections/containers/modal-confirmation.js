@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button, Alert } from 'react-bootstrap';
 import { closeModal } from '../../store/modal/actions';
-import { confirmationOrder } from '../../store/menu/actions';
+import { confirmationOrder } from '../../store/menu/actions'
+import { confirmationOrderToHistory } from '../../store/orders/actions';
 
 import OrderDetail from '../containers/order-detail';
 
@@ -12,7 +13,10 @@ class ModalConfirmation extends Component {
   };
 
   handleSubmit = () => {
-    this.props.confirmationOrder()
+    if (this.props.modalType === 'menu')
+      this.props.confirmationOrder()
+    else
+      this.props.confirmationOrderToHistory()
   }
 
   closeModal = () => {
@@ -59,6 +63,7 @@ class ModalConfirmation extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    modalType: state.modal.type,
     show: state.modal.active,
     total: state[state.modal.type] ? state[state.modal.type].total : 0,
     formInvalid: state.form['form-customer'] && state.form['form-customer'].syncErrors,
@@ -66,4 +71,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{closeModal, confirmationOrder})(ModalConfirmation);
+const mapDispatchToProps = {
+  closeModal,
+  confirmationOrder,
+  confirmationOrderToHistory
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ModalConfirmation);

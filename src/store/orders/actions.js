@@ -5,6 +5,8 @@ import {
   ADD_ITEMS_MODAL
 } from './model';
 
+import { setMessageSuccess } from '../modal/actions';
+
 import { openModal } from '../modal/actions';
 import { normalize } from 'normalizr';
 import { orders } from './normalize';
@@ -50,3 +52,12 @@ export const addItemModal = (payload) => (
 )
 
 export const changeNavMenu = () => ({ type: CHANGE_NAV_ORDERS })
+
+export const confirmationOrderToHistory = () => (
+  (dispatch,getState) => {
+    let data = getState()['orders']
+    query.confirmationOrderToHistory(data).then(payload => {
+      dispatch(setMessageSuccess('Se ha realizado el pedido correctamente!'))
+    })
+  }
+)
