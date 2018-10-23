@@ -6,27 +6,27 @@ import {
 import { reduxForm, Field } from 'redux-form';
 import { required, Input } from '../../utils/form';
 
-const OrderDetailCustomer = ({ page, total, handleSubmit2, reset, pristine, submitting, valid }) => (
+const OrderDetailCustomer = ({ page, total,customer, reset, pristine, submitting, valid }) => (
   <Row>
     <Col xs={6}>
-      <Form
-        noValidate
-        onSubmit={handleSubmit2}
-      >
-        {
-          page !== 'orders' ?
-            <Field
-                label="Nombre del cliente"
-                name="name"
-                type="title"
-                component={Input}
-                id="name"
-                placeholder="benedict@alligator.io"
-                validate={[required]}
-            />
-        : <h3> Freddy Contreras </h3>
-      }
-    </Form>
+      {
+        page !== 'orders' ?
+        <Form
+          noValidate
+        >
+
+          <Field
+              label="Nombre del cliente"
+              name="name"
+              type="title"
+              component={Input}
+              id="name"
+              placeholder="benedict@alligator.io"
+              validate={[required]}
+          />
+        </Form>
+      : <h3> {customer} </h3>
+    }
   </Col>
   <Col xs={6}>
     <h3 className="pull-right">Total: {total}</h3>

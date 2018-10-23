@@ -20,10 +20,11 @@ class Orders extends Component {
       this.props.changeNavMenu();
   }
 
-  handleOpenModal = (keyItem) => {
+  handleOpenModal = (keyItem, customer) => {
     this.props.openModalOrders({
       order:this.props.items[keyItem],
-      id: keyItem
+      id: keyItem,
+      customer 
     })
   }
 
@@ -48,7 +49,7 @@ class Orders extends Component {
                 <OrderListItem
                   key={key}
                   {...item}
-                  toggleModalConfirmation={() => this.handleOpenModal(item.id)}
+                  toggleModalConfirmation={() => this.handleOpenModal(item.id, item.customer)}
                 />
               ))
             }

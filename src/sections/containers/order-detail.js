@@ -17,7 +17,8 @@ class OrderDetail extends Component {
       <Layout
         customer={
           <OrderDetailCustomer
-            page={this.props.type}
+            customer={this.props.customer}
+            page={this.props.page}
             total={this.props.total}
           />
         }
@@ -38,6 +39,7 @@ class OrderDetail extends Component {
 
 const mapStateToProps = state => (
   {
+    customer: state.modal.customer,
     items: state.modal.items,
     page: state.modal.type,
     total: state[state.modal.type].total

@@ -38,7 +38,8 @@ export const openModalOrders = (data) => (
     dispatch(
       openModal({
         type:'orders',
-        items:{...data['order']['items']}
+        items:{...data['order']['items']},
+        customer: data['customer']
       })
     )
   }

@@ -13,6 +13,7 @@ export const modal = (state = INITIAL_STATE, action) => {
         ...state,
         type: action.payload['type'],
         items: action.payload['items'],
+        customer: action.payload['customer'],
         active: true
       }
     case CLOSE_MODAL:
