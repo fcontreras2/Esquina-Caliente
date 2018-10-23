@@ -35,6 +35,9 @@ list-group-item {
   border-radius: 0 !important
 }
 
+.table td {
+  vertical-align: middle !important;
+}
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -61,3 +64,9 @@ list-group-item {
 @import "../../node_modules/bootstrap/scss/transitions";
 @import "../../node_modules/bootstrap/scss/alert";
 @import "../../node_modules/bootstrap/scss/tables";
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+  font-family: 'Lato', sans-serif;
+}

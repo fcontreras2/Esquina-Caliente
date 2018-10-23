@@ -37,7 +37,7 @@ export const openModalOrders = (data) => (
     dispatch(addItemModal(data))
     dispatch(
       openModal({
-        type:'orders',
+        type: data['typeModal'],
         items:{...data['order']['items']},
         customer: data['customer']
       })
@@ -59,7 +59,7 @@ export const confirmationOrderToHistory = () => (
     let data = getState()['orders']
     let id = data['id']
     query.confirmationOrderToHistory(data['list']['orders'][id]).then(payload => {
-      dispatch(setMessageSuccess('Se ha realizado el pedido correctamente!'))
+      dispatch(setMessageSuccess('Se ha confirmado el pedido!'))
       query.deleteOrder(id).then(() => {
         dispatch(fetchOrders())
       })

@@ -36,8 +36,8 @@ const Header = props => (
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
-        <Link to="/">Menú</Link>
-        <Link to="/orders">Ordenes</Link>
+        <Link to="/" className="nav-link">Menú</Link>
+        <Link to="/orders" className="nav-link">Pedidos</Link>
         <Nav.Link href="#pricing">Cerrar sessión</Nav.Link>
       </Nav>
     </Navbar.Collapse>

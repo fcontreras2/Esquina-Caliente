@@ -26,7 +26,7 @@ class ModalConfirmation extends Component {
   render() {
     return (
       <Modal show={this.props.show} onHide={this.closeModal} size="large">
-        <Modal.Header>
+        <Modal.Header closeButton closeLabel="">
           <Modal.Title>Confirmacion Pedido</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -39,23 +39,26 @@ class ModalConfirmation extends Component {
               </Alert>
           }
         </Modal.Body>
-        <Modal.Footer style={{justifyContent:'center'}}>
-          {
-            !this.props.message ?
+        {
+          this.props.modalType !== 'history' &&
+            <Modal.Footer style={{justifyContent:'center'}}>
+            {
+              !this.props.message ?
               <Button
-                className="col-7"
-                onClick={this.handleSubmit}
-                disabled={this.props.formInvalid || this.props.total === 0}
-                variant="primary"
+              className="col-7"
+              onClick={this.handleSubmit}
+              disabled={this.props.formInvalid || this.props.total === 0}
+              variant="primary"
               > Confirmar</Button>
-            :
+              :
               <Button
-                className="col-7"
-                onClick={this.closeModal}
-                variant="info"
-              > Nuevo Pedido</Button>
-          }
-        </Modal.Footer>
+              className="col-7"
+              onClick={this.closeModal}
+              variant="info"
+              > { this.props.modalType !== 'orders' ? 'Nuevo pedido' : 'Ver pendientes'}</Button>
+            }
+            </Modal.Footer>
+        }
       </Modal>
     );
   }

@@ -23,8 +23,9 @@ class Orders extends Component {
   handleOpenModal = (keyItem, customer) => {
     this.props.openModalOrders({
       order:this.props.items[keyItem],
+      typeModal: this.props.menuActive,
       id: keyItem,
-      customer 
+      customer
     })
   }
 

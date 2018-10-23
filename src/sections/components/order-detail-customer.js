@@ -8,28 +8,29 @@ import { required, Input } from '../../utils/form';
 
 const OrderDetailCustomer = ({ page, total,customer, reset, pristine, submitting, valid }) => (
   <Row>
-    <Col xs={6}>
+    <Col xs={{span: 5, offset:1}}>
       {
         page !== 'orders' ?
         <Form
           noValidate
+          validated={false}
         >
-
+        {valid}
           <Field
               label="Nombre del cliente"
               name="name"
               type="title"
               component={Input}
               id="name"
-              placeholder="benedict@alligator.io"
+              placeholder="Freddy Contreras"
               validate={[required]}
           />
         </Form>
-      : <h3> {customer} </h3>
+      : <h5> Cliente: {customer} </h5>
     }
   </Col>
-  <Col xs={6}>
-    <h3 className="pull-right">Total: {total}</h3>
+  <Col xs={5}>
+    <h4 className="pull-right">Total: {total}</h4>
   </Col>
   </Row>
 )

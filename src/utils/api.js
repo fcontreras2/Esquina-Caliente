@@ -1,5 +1,5 @@
-//const API_URL = "https://shopping-cart-data.herokuapp.com/";
-const API_URL = "http://localhost:4000/";
+const API_URL = "https://shopping-cart-data.herokuapp.com/";
+//const API_URL = "http://localhost:4000/";
 
 export const getMenu = () => (
   fetch(API_URL + 'menu/')

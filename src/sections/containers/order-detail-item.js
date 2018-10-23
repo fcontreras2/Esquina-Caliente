@@ -46,17 +46,20 @@ class OrderDetailItem extends Component {
         {...this.state.item}
         addItem={() => this.handleAddItem()}
         removeItem={() => this.handleRemoveItem()}
-        page={this.props.type}
+        page={this.props.page}
       />
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
-  let item = state[state.modal.type].orders[props.index] ?
-    state[state.modal.type].orders[props.index] : null
+  let typeModal = state.modal.type !== 'history' ? state.modal.type : 'orders';
+
+  let item = state[typeModal].orders[props.index] ?
+    state[typeModal].orders[props.index] : null
   return {
     item,
+    page: typeModal,
     index: props.index,
     count: item ? item.count : 0
   }
