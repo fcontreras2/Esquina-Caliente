@@ -15,3 +15,9 @@ export const confirmationOrder = (data) => (
     body: JSON.stringify(data)
   }).then(resp => resp.json())
 )
+
+
+export const getOrders = () => (
+  fetch(API_URL + 'orders-list/')
+    .then(resp => resp.json())
+)

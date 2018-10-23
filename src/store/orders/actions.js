@@ -1,29 +1,52 @@
-import { ADD_ITEM, REMOVE_ITEM, ADD_ITEM_COUNT, REMOVE_ITEM_COUNT } from './model';
+import {
+  FETCH_ORDERS_STARTED,
+  FETCH_ORDERS_SUCCESED,
+  CHANGE_NAV_ORDERS,
+  ADD_ITEMS_MODAL
+} from './model';
 
-export const addItem = data => (
-  {
-    type : ADD_ITEM,
-    payload: {}
+import { openModal } from '../modal/actions';
+import { normalize } from 'normalizr';
+import { orders } from './normalize';
+import * as query from '../../utils/api';
+
+export const fetchOrders = () => (
+  (dispatch) => {
+    dispatch(fetchOrdersStarted())
+    setTimeout(() => {
+      query.getOrders().then(payload => {
+        dispatch({
+          type: FETCH_ORDERS_SUCCESED,
+          payload: normalize({...payload},orders)
+        })
+      })
+    },500)
   }
 )
 
-export const removeItem = data => (
+export const fetchOrdersStarted = () => (
   {
-    type: REMOVE_ITEM,
-    payload: {}
+    type: FETCH_ORDERS_STARTED
   }
 )
 
-export const addItemCount = id => (
-  {
-    type: ADD_ITEM_COUNT,
-    payload: {}
+export const openModalOrders = (data) => (
+  (dispatch) => {
+    dispatch(addItemModal(data['order']))
+    dispatch(
+      openModal({
+        type:'orders',
+        items:{...data['order']['items']}
+      })
+    )
   }
 )
 
-export const removeItemCount = id => (
+export const addItemModal = (payload) => (
   {
-    type: REMOVE_ITEM_COUNT,
-    payload: {}
+    type: ADD_ITEMS_MODAL,
+    payload
   }
 )
+
+export const changeNavMenu = () => ({ type: CHANGE_NAV_ORDERS })

@@ -15,12 +15,9 @@ export const INITIAL_STATE = {
   loading: false,
   total: 0,
   customer: null,
-  total: 0,
-  modalActive: false
 }
 
 // ACTIONS TYPES
-export const FETCH_MENU = 'FETCH_MENU';
 export const FETCH_MENU_STARTED = 'FETCH_MENU_STARTED';
 export const FETCH_MENU_SUCCESED = 'FETCH_MENU_SUCCESED'
 

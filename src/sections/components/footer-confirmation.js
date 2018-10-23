@@ -11,7 +11,7 @@ const styles = {
     textAlign: 'center',
     padding: 10,
     bottom: 0,
-    backgroundColor: '#f2CD5c',
+    backgroundColor: 'buttonface',
     zIndex: 1000,
     transition: 'opacity 0.7s linear',
     '&.active': {

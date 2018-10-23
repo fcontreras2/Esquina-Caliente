@@ -16,8 +16,7 @@ const MainLayout = (props) => (
     <Header
       page={props.page}
       menuActive={props.menuActive}
-      changeNavMenu={props.handleChangeNavMenu}
-      changeNavOrders={props.changeNavOrders}
+      changeNav={props.changeNav}
     />
     <Row className={props.classes.container}>
       {props.children}

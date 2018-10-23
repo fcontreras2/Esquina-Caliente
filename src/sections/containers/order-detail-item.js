@@ -42,15 +42,12 @@ class OrderDetailItem extends Component {
 
   render() {
     return (
-      <div>
-      {this.props.index}
       <Item
         {...this.state.item}
         addItem={() => this.handleAddItem()}
         removeItem={() => this.handleRemoveItem()}
         page={this.props.type}
       />
-      </div>
     )
   }
 }

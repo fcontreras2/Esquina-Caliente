@@ -18,7 +18,7 @@ class Menu extends Component {
     this.props.fetchMenu()
   }
 
-  handleChangeNavMenu = event => {
+  handleChangeNav = event => {
     // Evitando cambio de menu
     if (event.target.getAttribute('index') !== this.props.menuActive)
       this.props.changeNavMenu();
@@ -35,7 +35,7 @@ class Menu extends Component {
     return (
       <Layout
         menuActive={this.props.menuActive}
-        handleChangeNavMenu={this.handleChangeNavMenu}
+        changeNav={this.handleChangeNav}
       >
         {
           this.props.menu.map((item) => (

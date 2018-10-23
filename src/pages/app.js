@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import Login from './login';
 import Menu from './menu';
 import Orders from './orders';
 

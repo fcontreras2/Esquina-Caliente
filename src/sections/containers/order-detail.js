@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Map } from 'immutable';
 import {
   addItem,
   removeItem
 } from '../../store/menu/actions';
-
-import { orderConfirmation } from '../../store/modal/actions';
 
 import Layout from '../components/order-detail-layout';
 import OrderDetailCustomer from '../components/order-detail-customer';

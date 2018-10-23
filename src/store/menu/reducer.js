@@ -52,7 +52,7 @@ export const menu = (state = INITIAL_STATE, action) => {
       state.orders[keyItem].count--;
       state.total -= state.orders[keyItem].price;
 
-      if (state.orders[keyItem].count == 0)
+      if (state.orders[keyItem].count === 0)
         delete state.orders[keyItem];
       return {
         ...state

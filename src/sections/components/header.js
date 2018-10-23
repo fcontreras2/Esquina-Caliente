@@ -1,6 +1,7 @@
 import React , { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { MENU_BREAKFAST, MENU_REST } from '../../store/menu/model';
+import { MENU_PENDING , MENU_HISTORIAL } from '../../store/orders/model';
 
 import { Navbar, Button, ButtonGroup, Nav } from 'react-bootstrap';
 import injectSheet from 'react-jss';
@@ -50,22 +51,24 @@ const Header = props => (
             <Button size="sm"
               index={MENU_BREAKFAST}
               variant={`${props.menuActive === MENU_BREAKFAST ? 'primary' : 'default'}`}
-              onClick={props.changeNavMenu}>Desayuno</Button>
+              onClick={props.changeNav}>Desayuno</Button>
             <Button size="sm"
               index={MENU_REST}
               variant={`${props.menuActive === MENU_REST ? 'primary' : 'default'}`}
-              onClick={props.changeNavMenu}>Almuerzo</Button>
+              onClick={props.changeNav}>Almuerzo</Button>
           </ButtonGroup>
         ) :
         (
           <ButtonGroup className={props.classes.buttons}>
 
           <Button size="sm"
-            variant={`${props.menuActive === 1  ? 'primary' : 'default'}`}
-            onClick={props.changeNavOrders}>Pendientes</Button>
+            index={MENU_PENDING}
+            variant={`${props.menuActive === MENU_PENDING  ? 'primary' : 'default'}`}
+            onClick={props.changeNav}>Pendientes</Button>
           <Button size="sm"
-            variant={`${props.menuActive === 0 ? 'primary' : 'default'}`}
-            onClick={props.changeNavOrders}>Historial</Button>
+            index={MENU_HISTORIAL}
+            variant={`${props.menuActive === MENU_HISTORIAL ? 'primary' : 'default'}`}
+            onClick={props.changeNav}>Historial</Button>
           </ButtonGroup>
         )
       }
